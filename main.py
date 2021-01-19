@@ -27,11 +27,11 @@ def main():
             scu.drop() # Okay without it (For safety purposes)
 
     elif sys.argv[1] == "receiver":
-        # TODO
         scu = SCU(mtu = 1500)
         scu.bind_as_receiver(receiver_address = ("169.254.155.219", 8888))
         for i in range(0, 1000):
             filedata = scu.recv()
+            ## DO CHECKS HERE
             utils.write_file(f"./data/data{i}", filedata)
             print(f"file received: {i}", end="\r")
 
