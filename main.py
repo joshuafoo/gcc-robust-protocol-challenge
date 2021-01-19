@@ -31,7 +31,6 @@ def main():
         scu.bind_as_receiver(receiver_address = ("169.254.155.219", 8888))
         for i in range(0, 1000):
             filedata = scu.recv()
-            ## DO CHECKS HERE
             utils.write_file(f"./data/data{i}", filedata)
             print(f"file received: {i}", end="\r")
 

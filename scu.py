@@ -148,7 +148,7 @@ class SCU: # SCU: Single Coalesced Unit
                     rtr = self.calculate_rtr(key, packet.header.seq)
                     if rtr is not None: # Need to request resend
                         self.response(SCUPacketType.Rtr.value, from_addr, packet.header.id, rtr)
-                    elif key in received_files_length and self.is_all_received(key, received_files_length[key]): #  ファイル受信完了
+                    elif key in received_files_length and self.is_all_received(key, received_files_length[key]): #  File reception completed
                         received_files_flag[key] = True
                         self.response(SCUPacketType.Fin.value, from_addr, packet.header.id, 0)
                         self.file_received.put((key, received_files_length[key]))
