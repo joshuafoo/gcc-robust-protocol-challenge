@@ -10,8 +10,8 @@ class SCUMode(Enum):
     SendMode = 0
     RecvMode = 1
 
-class SCU:
-    def __init__(self, mtu=1500):
+class SCU: # SCU: Single Coalesced Unit
+    def __init__(self, mtu=1500): # MTU: Maximum Transmission Unit
         self.mtu = mtu
 
     def bind_as_sender(self, receiver_address):
